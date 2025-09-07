@@ -5,7 +5,7 @@ export interface ProblemStatement {
   title: string
   summary: string
   description: string
-  difficulty: "Easy" | "Med" | "Hard"
+  difficulty: string | string[] // Updated to handle both string and array types
   technology: string[]
   stakeholders: string[]
   impact_area: string[]
@@ -24,7 +24,6 @@ import problemsData from "./problems-data.json"
 export const sampleProblems: ProblemStatement[] = problemsData as ProblemStatement[]
 
 export const TAG_CATEGORIES = {
-  Difficulty: ["Easy", "Med", "Hard"],
   Technology: [
     "Artificial Intelligence (AI)",
     "Machine Learning (ML)",
@@ -100,7 +99,7 @@ export function fuzzySearch(query: string, problems: ProblemStatement[]): Proble
   const scoredResults = problems.map((problem) => {
     let score = 0
     const searchableText =
-      `${problem.ps_id} ${problem.title} ${problem.summary} ${problem.description} ${problem.theme} ${problem.organization} ${problem.department} ${problem.category} ${problem.solution_type} ${problem.difficulty} ${problem.technology.join(" ")} ${problem.stakeholders.join(" ")} ${problem.impact_area.join(" ")} ${problem.data_resource_type.join(" ")}`.toLowerCase()
+      `${problem.ps_id} ${problem.title} ${problem.summary} ${problem.description} ${problem.theme} ${problem.organization} ${problem.department} ${problem.category} ${problem.solution_type} ${Array.isArray(problem.difficulty) ? problem.difficulty.join(" ") : problem.difficulty} ${problem.technology.join(" ")} ${problem.stakeholders.join(" ")} ${problem.impact_area.join(" ")} ${problem.data_resource_type.join(" ")}`.toLowerCase()
 
     searchTerms.forEach((term) => {
       // Exact match in ps_id (highest score)
@@ -190,19 +189,19 @@ export function filterByTags(problems: ProblemStatement[], selectedTags: string[
   if (selectedTags.length === 0) return problems
 
   return problems.filter((problem) =>
-    selectedTags.some(
-      (tag) =>
+    selectedTags.some((tag) => {
+      return (
         problem.technology.includes(tag) ||
         problem.stakeholders.includes(tag) ||
         problem.impact_area.includes(tag) ||
         problem.data_resource_type.includes(tag) ||
         problem.solution_type === tag ||
-        problem.difficulty === tag ||
         problem.theme === tag ||
         problem.category === tag ||
         problem.organization === tag ||
-        problem.department === tag,
-    ),
+        problem.department === tag
+      )
+    }),
   )
 }
 

@@ -13,19 +13,6 @@ interface ProblemCardProps {
 }
 
 export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
-  const getDifficultyBorderColor = (difficulty: string) => {
-    switch (difficulty) {
-      case "Easy":
-        return "border-l-green-500 border-l-4"
-      case "Med":
-        return "border-l-yellow-500 border-l-4"
-      case "Hard":
-        return "border-l-red-500 border-l-4"
-      default:
-        return "border-l-muted border-l-4"
-    }
-  }
-
   const highlightText = (text: string, query?: string) => {
     if (!query) return text
 
@@ -46,9 +33,7 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Card
-          className={`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border cursor-pointer ${getDifficultyBorderColor(problem.difficulty)}`}
-        >
+        <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border-border cursor-pointer border-l-green-500 border-l-4">
           <CardHeader className="pb-2 sm:pb-3 p-3 sm:p-6">
             <div className="flex items-start justify-between gap-2 sm:gap-3">
               <CardTitle className="text-sm sm:text-base lg:text-lg font-semibold text-card-foreground leading-tight">
@@ -137,18 +122,6 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
           </DialogTitle>
           <div className="flex items-center gap-2 sm:gap-4 text-sm text-muted-foreground flex-wrap">
             <span className="font-mono text-xs sm:text-sm">{problem.ps_id}</span>
-            <div className="flex items-center gap-2">
-              <div
-                className={`w-3 h-3 rounded-full ${
-                  problem.difficulty === "Easy"
-                    ? "bg-green-500"
-                    : problem.difficulty === "Med"
-                      ? "bg-yellow-500"
-                      : "bg-red-500"
-                }`}
-              ></div>
-              <span className="text-xs sm:text-sm">{problem.difficulty}</span>
-            </div>
             {problem.submission_count && (
               <div className="flex items-center gap-1">
                 <TrendingUp className="w-4 h-4" />
@@ -202,9 +175,6 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
                 <div className="space-y-2 text-xs sm:text-sm">
                   <div>
                     <span className="font-medium">Solution Type:</span> {problem.solution_type}
-                  </div>
-                  <div>
-                    <span className="font-medium">Difficulty:</span> {problem.difficulty}
                   </div>
                 </div>
               </div>
