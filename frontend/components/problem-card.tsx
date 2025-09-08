@@ -181,7 +181,7 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
         <ScrollArea className="flex-1 min-h-0 px-4 sm:px-6">
           <div className="space-y-4 sm:space-y-6 py-4 sm:py-6">
             <div>
-              <h3 className="font-semibold mb-2 text-sm sm:text-base">Summary</h3>
+              <h3 className="font-semibold mb-2 text-sm sm:text-base">AI Summary</h3>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{problem.summary}</p>
             </div>
 
