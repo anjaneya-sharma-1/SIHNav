@@ -8,9 +8,12 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "SIH Nav",
+  title: "SIH Navigator",
   description: "Smart India Hackathon Navigation Platform",
   generator: "Next.js",
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 export default function RootLayout({
   children,
