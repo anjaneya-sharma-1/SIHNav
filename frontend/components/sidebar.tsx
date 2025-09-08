@@ -37,19 +37,18 @@ export function Sidebar({
 
   return (
     <>
-      {/* Overlay for mobile */}
-      <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden" onClick={onClose} />
 
       {/* Sidebar */}
-      <div className="fixed left-0 top-0 h-full w-72 sm:w-80 bg-card border-r border-border z-50 overflow-y-auto">
-        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
+      <div className="fixed left-0 top-0 h-full w-full max-w-sm sm:w-80 bg-card border-r border-border z-50 overflow-y-auto">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 pb-20">
           {/* Header */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between sticky top-0 bg-card py-2 -mx-4 px-4 border-b border-border/50">
             <div className="flex items-center gap-2">
               <Filter className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               <h2 className="text-base sm:text-lg font-semibold text-foreground">Filters & Sort</h2>
             </div>
-            <Button variant="ghost" size="sm" onClick={onClose}>
+            <Button variant="ghost" size="sm" onClick={onClose} className="h-8 w-8 p-0">
               <X className="h-4 w-4" />
             </Button>
           </div>

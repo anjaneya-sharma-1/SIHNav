@@ -5,6 +5,7 @@ import { SearchBar } from "@/components/search-bar"
 import { Sidebar } from "@/components/sidebar"
 import { ProblemCard } from "@/components/problem-card"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { BookmarksView } from "@/components/bookmarks-view"
 import {
   sampleProblems,
   fuzzySearch,
@@ -14,7 +15,7 @@ import {
   type ProblemStatement,
 } from "@/lib/search"
 import { Button } from "@/components/ui/button"
-import { Sparkles, Trophy, Users, Filter } from "lucide-react"
+import { Sparkles, Trophy, Users, Filter, Bookmark } from "lucide-react"
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -22,6 +23,7 @@ export default function HomePage() {
   const [filteredProblems, setFilteredProblems] = useState<ProblemStatement[]>(sampleProblems)
   const [sortBy, setSortBy] = useState<"relevance" | "submissions_high" | "submissions_low">("relevance")
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [currentView, setCurrentView] = useState<"search" | "bookmarks">("search")
 
   const submissionCounts = sampleProblems.map((p) => p.submission_count || 0)
   const minSubmissions = Math.min(...submissionCounts)
@@ -51,6 +53,16 @@ export default function HomePage() {
     handleSearch()
   }, [searchQuery, selectedTags, sortBy, submissionRange])
 
+  if (currentView === "bookmarks") {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <BookmarksView onBack={() => setCurrentView("search")} />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Sidebar */}
@@ -72,17 +84,26 @@ export default function HomePage() {
       <div className={`transition-all duration-300 ${sidebarOpen ? "lg:ml-80" : "ml-0"}`}>
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-30">
-          <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
-            <div className="flex justify-end">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+            <div className="flex justify-between items-center mb-3 sm:mb-4">
+              <Button
+                variant="ghost"
+                onClick={() => setCurrentView("bookmarks")}
+                className="flex items-center gap-2 text-sm px-2 sm:px-3"
+              >
+                <Bookmark className="h-4 w-4" />
+                <span className="hidden sm:inline">Bookmarks</span>
+                <span className="sm:hidden">Saved</span>
+              </Button>
               <ThemeToggle />
             </div>
-            <div className="text-center space-y-1">
+            <div className="text-center space-y-1 sm:space-y-2">
               <div className="flex items-center justify-center gap-2">
                 <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                 <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Smart India Hackathon 2025</h1>
                 <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground text-balance">
+              <p className="text-xs sm:text-sm text-muted-foreground text-balance px-2">
                 Discover innovative problem statements and build solutions for India's future
               </p>
             </div>
@@ -91,28 +112,28 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <section className="py-6 sm:py-8 lg:py-12 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container mx-auto px-3 sm:px-4">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8">
               <div className="space-y-2 sm:space-y-4">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-balance">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground text-balance px-2">
                   Stop <span className="text-red-500 italic">Scrolling</span>. Start{" "}
                   <span className="text-green-500 italic">Winning</span>
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+                <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
                   Search through curated problem statements from various ministries and domains. Use our intelligent
                   search to find challenges that match your skills and interests.
                 </p>
               </div>
 
               {/* Search Bar and Filter Toggle */}
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-4 px-4">
                 <SearchBar value={searchQuery} onChange={setSearchQuery} onSearch={handleSearch} />
 
                 {!sidebarOpen && (
                   <Button
                     variant="outline"
                     onClick={() => setSidebarOpen(true)}
-                    className="flex items-center gap-2 text-sm"
+                    className="flex items-center gap-2 text-sm w-full sm:w-auto"
                   >
                     <Filter className="h-4 w-4" />
                     Show Filters & Sort
@@ -121,7 +142,7 @@ export default function HomePage() {
               </div>
 
               {/* Stats */}
-              <div className="flex items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm text-muted-foreground">
+              <div className="flex items-center justify-center gap-3 sm:gap-6 lg:gap-8 text-xs sm:text-sm text-muted-foreground flex-wrap px-4">
                 <div className="flex items-center gap-1 sm:gap-2">
                   <Trophy className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>{sampleProblems.length} Problems</span>
@@ -141,7 +162,7 @@ export default function HomePage() {
 
         {/* Results Section */}
         <section className="py-4 sm:py-6 lg:py-8">
-          <div className="container mx-auto px-3 sm:px-4 space-y-4 sm:space-y-6 lg:space-y-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-4 sm:space-y-6 lg:space-y-8">
             {/* Results Header */}
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="space-y-1">
@@ -155,13 +176,13 @@ export default function HomePage() {
 
             {/* Results Grid */}
             {filteredProblems.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
                 {filteredProblems.map((problem) => (
-                  <ProblemCard key={problem.id} problem={problem} searchQuery={searchQuery} />
+                  <ProblemCard key={problem.ps_id} problem={problem} searchQuery={searchQuery} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 sm:py-12 space-y-4">
+              <div className="text-center py-8 sm:py-12 space-y-4 px-4">
                 <div className="text-3xl sm:text-4xl">🔍</div>
                 <h3 className="text-base sm:text-lg font-medium text-foreground">No problems found</h3>
                 <p className="text-sm text-muted-foreground">
@@ -174,13 +195,13 @@ export default function HomePage() {
 
         {/* Footer */}
         <footer className="border-t border-border bg-card/30 mt-8 sm:mt-12 lg:mt-16">
-          <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
             <div className="text-center space-y-3 sm:space-y-4">
               <div className="flex items-center justify-center gap-2">
                 <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                 <span className="text-sm sm:text-base font-semibold text-foreground">Smart India Hackathon 2025</span>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground px-4">
                 Empowering innovation through technology • Building solutions for tomorrow
               </p>
             </div>

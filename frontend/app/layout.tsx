@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: "Smart India Hackathon Navigation Platform",
   generator: "Next.js",
 }
-
 export default function RootLayout({
   children,
 }: Readonly<{

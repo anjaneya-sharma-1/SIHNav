@@ -33,7 +33,7 @@ export function SearchBar({ value, onChange, onSearch }: SearchBarProps) {
         />
         <Button
           onClick={onSearch}
-          className="absolute right-1 h-10 px-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="absolute right-1 h-10 px-4 !bg-green-600 hover:!bg-green-700 !text-black font-semibold border-0 shadow-sm"
         >
           Search
         </Button>

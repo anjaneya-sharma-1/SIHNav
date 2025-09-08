@@ -1,11 +1,16 @@
 "use client"
 
+import type React from "react"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/components/ui/button"
 import type { ProblemStatement } from "@/lib/search"
-import { Building2, Cpu, Users, Target, Eye, TrendingUp } from "lucide-react"
+import { Building2, Cpu, Users, Target, Eye, TrendingUp, Bookmark, BookmarkCheck } from "lucide-react"
+import { BookmarkManager } from "@/lib/bookmarks"
+import { useState, useEffect } from "react"
 
 interface ProblemCardProps {
   problem: ProblemStatement
@@ -36,21 +41,16 @@ function formatDifficultyLabel(difficulty: string | string[]) {
 }
 
 export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
-  const highlightText = (text: string, query?: string) => {
-    if (!query) return text
+  const [isBookmarked, setIsBookmarked] = useState(false)
 
-    const regex = new RegExp(`(${query.split(" ").join("|")})`, "gi")
-    const parts = text.split(regex)
+  useEffect(() => {
+    setIsBookmarked(BookmarkManager.isBookmarked(problem.ps_id))
+  }, [problem.ps_id])
 
-    return parts.map((part, index) =>
-      regex.test(part) ? (
-        <mark key={index} className="bg-primary/20 text-primary-foreground px-1 rounded">
-          {part}
-        </mark>
-      ) : (
-        part
-      ),
-    )
+  const handleBookmarkToggle = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    const newBookmarkState = BookmarkManager.toggleBookmark(problem)
+    setIsBookmarked(newBookmarkState)
   }
 
   const difficultyInfo = getDifficultyInfo(problem.difficulty)
@@ -64,11 +64,25 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
           <CardHeader className="pb-2 sm:pb-3 p-3 sm:p-6">
             <div className="flex items-start justify-between gap-2 sm:gap-3">
               <CardTitle className="text-sm sm:text-base lg:text-lg font-semibold text-card-foreground leading-tight">
-                {highlightText(problem.title, searchQuery)}
+                {problem.title}
               </CardTitle>
-              <Badge className={`text-xs px-2 py-1 font-medium ${difficultyInfo.badge} flex-shrink-0`}>
-                {formatDifficultyLabel(problem.difficulty)}
-              </Badge>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <Badge className={`text-xs px-2 py-1 font-medium ${difficultyInfo.badge}`}>
+                  {formatDifficultyLabel(problem.difficulty)}
+                </Badge>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleBookmarkToggle}
+                  className="h-8 w-8 p-0 hover:bg-primary/10"
+                >
+                  {isBookmarked ? (
+                    <BookmarkCheck className="h-4 w-4 text-primary" />
+                  ) : (
+                    <Bookmark className="h-4 w-4 text-muted-foreground hover:text-primary" />
+                  )}
+                </Button>
+              </div>
             </div>
             <div className="flex items-center justify-between">
               <div className="text-xs text-muted-foreground font-mono">{problem.ps_id}</div>
@@ -84,7 +98,7 @@ export function ProblemCard({ problem, searchQuery }: ProblemCardProps) {
 
           <CardContent className="space-y-2 sm:space-y-3 lg:space-y-4 p-3 sm:p-6 pt-0">
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
-              {highlightText(problem.summary, searchQuery)}
+              {problem.summary}
             </p>
 
             <div className="space-y-1 sm:space-y-2">
