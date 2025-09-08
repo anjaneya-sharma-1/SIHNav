@@ -48,6 +48,7 @@ export const TAG_CATEGORIES = {
     "GIS / Remote Sensing",
     "Embedded Systems",
   ],
+  Difficulty: ["Easy", "Med", "Hard"],
   Stakeholders: [
     "Government Agencies",
     "NGOs",
@@ -201,12 +202,17 @@ export function filterByTags(problems: ProblemStatement[], selectedTags: string[
         ? problem.solution_type.includes(tag)
         : problem.solution_type === tag
 
+      const difficultyMatch = Array.isArray(problem.difficulty)
+        ? problem.difficulty.includes(tag)
+        : problem.difficulty === tag
+
       return (
         problem.technology.includes(tag) ||
         problem.stakeholders.includes(tag) ||
         problem.impact_area.includes(tag) ||
         problem.data_resource_type.includes(tag) ||
         solutionTypeMatch ||
+        difficultyMatch ||
         problem.theme === tag ||
         problem.category === tag ||
         problem.organization === tag ||

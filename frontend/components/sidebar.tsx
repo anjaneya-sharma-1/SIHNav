@@ -58,9 +58,11 @@ export function Sidebar({
           {selectedTags.length > 0 && (
             <div className="space-y-2">
               <h3 className="text-sm font-medium text-foreground">Active Filters</h3>
-              <Badge variant="outline" className="text-xs">
-                {selectedTags.length} tag{selectedTags.length !== 1 ? "s" : ""} selected
-              </Badge>
+              <div className="flex flex-wrap gap-1">
+                <Badge variant="outline" className="text-xs">
+                  {selectedTags.length} tag{selectedTags.length !== 1 ? "s" : ""}
+                </Badge>
+              </div>
             </div>
           )}
 

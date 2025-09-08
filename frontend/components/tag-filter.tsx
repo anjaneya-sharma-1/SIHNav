@@ -13,6 +13,7 @@ interface TagFilterProps {
 export function TagFilter({ availableTags, selectedTags, onTagToggle }: TagFilterProps) {
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({
     Technology: true,
+    Difficulty: true,
     Stakeholders: true,
   })
 
@@ -21,6 +22,25 @@ export function TagFilter({ availableTags, selectedTags, onTagToggle }: TagFilte
       ...prev,
       [category]: !prev[category],
     }))
+  }
+
+  const getDifficultyColors = (tag: string, isSelected: boolean) => {
+    if (tag === "Easy") {
+      return isSelected
+        ? "bg-green-500 text-white hover:bg-green-600 border-green-500"
+        : "bg-green-100 text-green-800 hover:bg-green-200 border-green-300 dark:bg-green-900 dark:text-green-200 dark:hover:bg-green-800 dark:border-green-700"
+    }
+    if (tag === "Med") {
+      return isSelected
+        ? "bg-yellow-500 text-white hover:bg-yellow-600 border-yellow-500"
+        : "bg-yellow-100 text-yellow-800 hover:bg-yellow-200 border-yellow-300 dark:bg-yellow-900 dark:text-yellow-200 dark:hover:bg-yellow-800 dark:border-yellow-700"
+    }
+    if (tag === "Hard") {
+      return isSelected
+        ? "bg-red-500 text-white hover:bg-red-600 border-red-500"
+        : "bg-red-100 text-red-800 hover:bg-red-200 border-red-300 dark:bg-red-900 dark:text-red-200 dark:hover:bg-red-800 dark:border-red-700"
+    }
+    return ""
   }
 
   return (
@@ -55,14 +75,19 @@ export function TagFilter({ availableTags, selectedTags, onTagToggle }: TagFilte
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => {
                     const isSelected = selectedTags.includes(tag)
+                    const isDifficultyTag = category === "Difficulty"
+                    const difficultyColors = isDifficultyTag ? getDifficultyColors(tag, isSelected) : ""
+
                     return (
                       <Badge
                         key={tag}
                         variant={isSelected ? "default" : "secondary"}
                         className={`cursor-pointer transition-all duration-200 hover:scale-105 ${
-                          isSelected
-                            ? "bg-primary text-primary-foreground hover:bg-primary/90 border-primary"
-                            : "bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground border-border"
+                          isDifficultyTag
+                            ? difficultyColors
+                            : isSelected
+                              ? "bg-primary text-primary-foreground hover:bg-primary/90 border-primary"
+                              : "bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground border-border"
                         }`}
                         onClick={() => onTagToggle(tag)}
                       >

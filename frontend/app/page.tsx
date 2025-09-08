@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react"
 import { SearchBar } from "@/components/search-bar"
 import { Sidebar } from "@/components/sidebar"
 import { ProblemCard } from "@/components/problem-card"
+import { ThemeToggle } from "@/components/theme-toggle"
 import {
   sampleProblems,
   fuzzySearch,
@@ -71,16 +72,17 @@ export default function HomePage() {
       <div className={`transition-all duration-300 ${sidebarOpen ? "lg:ml-80" : "ml-0"}`}>
         {/* Header */}
         <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-30">
-          <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6">
-            <div className="text-center space-y-1 sm:space-y-2">
-              <div className="flex items-center justify-center gap-2 mb-1 sm:mb-2">
-                <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
-                  Smart India Hackathon 2025
-                </h1>
-                <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+          <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
+            <div className="flex justify-end">
+              <ThemeToggle />
+            </div>
+            <div className="text-center space-y-1">
+              <div className="flex items-center justify-center gap-2">
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">Smart India Hackathon 2025</h1>
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
-              <p className="text-sm sm:text-base text-muted-foreground text-balance">
+              <p className="text-xs sm:text-sm text-muted-foreground text-balance">
                 Discover innovative problem statements and build solutions for India's future
               </p>
             </div>
@@ -93,7 +95,8 @@ export default function HomePage() {
             <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8">
               <div className="space-y-2 sm:space-y-4">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-balance">
-                  Find Your Perfect Challenge
+                  Stop <span className="text-red-500 italic">Scrolling</span>. Start{" "}
+                  <span className="text-green-500 italic">Winning</span>
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
                   Search through curated problem statements from various ministries and domains. Use our intelligent
