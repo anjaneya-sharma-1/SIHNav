@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/sidebar"
 import { ProblemCard } from "@/components/problem-card"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { BookmarksView } from "@/components/bookmarks-view"
+import { useIsMobile } from "@/hooks/use-mobile"
 import {
   sampleProblems,
   fuzzySearch,
@@ -18,11 +19,12 @@ import { Button } from "@/components/ui/button"
 import { Sparkles, Trophy, Users, Filter, Bookmark } from "lucide-react"
 
 export default function HomePage() {
+  const isMobile = useIsMobile()
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [filteredProblems, setFilteredProblems] = useState<ProblemStatement[]>(sampleProblems)
   const [sortBy, setSortBy] = useState<"relevance" | "submissions_high" | "submissions_low">("relevance")
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false) // Will be set properly in useEffect
   const [currentView, setCurrentView] = useState<"search" | "bookmarks">("search")
 
   const submissionCounts = sampleProblems.map((p) => p.submission_count || 0)
@@ -31,6 +33,13 @@ export default function HomePage() {
   const [submissionRange, setSubmissionRange] = useState<[number, number]>([minSubmissions, maxSubmissions])
 
   const allTags = useMemo(() => getAllTags(sampleProblems), [])
+
+  // Update sidebar state based on mobile status
+  useEffect(() => {
+    if (isMobile !== undefined) {
+      setSidebarOpen(!isMobile)
+    }
+  }, [isMobile])
 
   const handleSearch = () => {
     let results = fuzzySearch(searchQuery, sampleProblems)
