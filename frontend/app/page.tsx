@@ -211,7 +211,7 @@ export default function HomePage() {
                 <span className="text-sm sm:text-base font-semibold text-foreground">Smart India Hackathon 2025</span>
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground px-4">
-                Empowering innovation through technology • Building solutions for tomorrow
+                assembled at 3 AM by anjaneya and ishaan
               </p>
             </div>
           </div>
