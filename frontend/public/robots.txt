@@ -1,0 +1,61 @@
+# Robots.txt for SIH Navigator - Smart India Hackathon 2025 Platform
+# Optimized for SEO and AI crawler accessibility
+
+User-agent: *
+Allow: /
+
+# Allow all search engines and AI crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI and ML crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow admin or private paths (add as needed)
+# Disallow: /admin/
+# Disallow: /api/private/
+
+# Crawl delay to be respectful to server resources
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://sih-nav.vercel.app/sitemap.xml
+
+# Additional information for crawlers about the site's purpose
+# This site contains Smart India Hackathon 2025 problem statements,
+# hackathon information, innovation challenges, and technology solutions
