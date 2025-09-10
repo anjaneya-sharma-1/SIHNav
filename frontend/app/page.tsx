@@ -113,7 +113,7 @@ export default function HomePage() {
                 <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground text-balance px-2">
-                Official Problem Statements Database | AI Challenges | Tech Innovation Solutions
+                Discover innovative problem statements and build solutions for India's future
               </p>
             </div>
           </div>
@@ -125,12 +125,12 @@ export default function HomePage() {
             <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8">
               <div className="space-y-2 sm:space-y-4">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground text-balance px-2">
-                  Learn How to <span className="text-green-500 italic">Win</span> SIH{" "}
-                  <span className="text-blue-500 italic">2025</span>
+                  Stop <span className="text-red-500 italic">Scrolling</span>. Start{" "}
+                  <span className="text-green-500 italic">Winning</span>
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
-                  Complete guide on how to find the correct problem statements, winning strategies, and participation tips. 
-                  Browse 1000+ curated SIH problems with difficulty filters and expert guidance for guaranteed success.
+                  Search through curated problem statements from various ministries and domains. Use our intelligent
+                  search to find challenges that match your skills and interests.
                 </p>
               </div>
 

@@ -80,3 +80,4 @@ Sitemap: https://sih-nav.vercel.app/sitemap.xml
 # Additional information for crawlers about the site's purpose
 # This site contains Smart India Hackathon 2025 problem statements,
 # hackathon information, innovation challenges, and technology solutions
+why
