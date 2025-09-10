@@ -113,7 +113,7 @@ export default function HomePage() {
                 <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground text-balance px-2">
-                Discover innovative problem statements and build solutions for India's future
+                Official Problem Statements Database | AI Challenges | Tech Innovation Solutions
               </p>
             </div>
           </div>
@@ -129,8 +129,8 @@ export default function HomePage() {
                   <span className="text-green-500 italic">Winning</span>
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
-                  Search through curated problem statements from various ministries and domains. Use our intelligent
-                  search to find challenges that match your skills and interests.
+                  Browse 1000+ Smart India Hackathon 2025 problem statements from 50+ government ministries. 
+                  Find AI challenges, tech innovation problems, and digital solutions for SIH2025 preparation.
                 </p>
               </div>
 
@@ -201,6 +201,23 @@ export default function HomePage() {
             )}
           </div>
         </section>
+
+        {/* Hidden SEO Content for Better Indexing */}
+        <div className="sr-only">
+          <h2>Smart India Hackathon 2025 Problem Statements Database</h2>
+          <p>This is the official Smart India Hackathon 2025 problem statements database and navigation platform. Students, developers, and innovators can browse through 1000+ carefully curated problem statements from over 50 government ministries and organizations.</p>
+          
+          <h3>AI Problem Statements and Technology Challenges</h3>
+          <p>Find AI website problems for SIH, artificial intelligence challenges, machine learning problems, data science competitions, and cutting-edge technology solutions for Smart India Hackathon 2025.</p>
+          
+          <h3>Smart India Hackathon Project Ideas and Innovation Challenges</h3>
+          <p>Discover smart india hackathon project opportunities across domains like healthcare technology, fintech innovation, smart cities development, agriculture technology, education technology, cybersecurity, renewable energy, transportation technology, e-governance solutions, and digital transformation challenges.</p>
+          
+          <h3>Government Ministry Problem Statements</h3>
+          <p>Browse problem statements from various government ministries including Ministry of Electronics and IT, Ministry of Health, Ministry of Education, Ministry of Agriculture, Ministry of Urban Development, and many more for the Smart India Hackathon 2025 competition.</p>
+          
+          <h4>Keywords: Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database, government hackathon challenges, ministry problem statements, student hackathon competition, coding challenges India, tech innovation problems, Digital India hackathon, startup problem statements, innovation challenges 2025</h4>
+        </div>
 
         {/* Footer */}
         <footer className="border-t border-border bg-card/30 mt-8 sm:mt-12 lg:mt-16">

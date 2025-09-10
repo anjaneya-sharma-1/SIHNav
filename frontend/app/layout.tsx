@@ -9,9 +9,9 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "SIH Navigator | Smart India Hackathon 2025 Problem Statements & Solutions",
-  description: "🚀 Discover 1000+ Smart India Hackathon 2025 problem statements! Search, filter & bookmark SIH problems from 50+ ministries. Find innovation challenges in AI, healthcare, fintech, smart cities & more. Perfect for students, developers & startups preparing for SIH2025.",
-  keywords: "Smart India Hackathon 2025, SIH 2025, SIH2025, hackathon problems, problem statements, innovation challenge, government hackathon, ministry problems, student competition, coding hackathon, tech solutions, startup ideas, Digital India, AI problems, healthcare tech, fintech innovation, smart cities, agriculture tech, education technology",
+  title: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Solutions",
+  description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation, hackathon projects, and innovation challenges.",
+  keywords: "Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database, government hackathon challenges, ministry problem statements, student hackathon competition, coding challenges India, tech innovation problems, Digital India hackathon, startup problem statements, innovation challenges 2025, hackathon project ideas, SIH problem database, government tech challenges, AI hackathon problems, machine learning challenges, data science problems, blockchain hackathon, IoT challenges, healthcare tech problems, fintech innovation challenges, smart cities hackathon, agriculture technology problems, education tech challenges, cybersecurity hackathon problems, renewable energy challenges, transportation tech problems, e-governance solutions, digital transformation challenges, artificial intelligence competition, technology solutions India",
   authors: [{ name: "Anjaneya" }, { name: "Ishaan" }],
   creator: "Anjaneya and Ishaan",
   publisher: "SIH Navigator Team",
@@ -35,22 +35,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://sih-nav.vercel.app",
-    siteName: "SIH Navigator - Smart India Hackathon 2025",
-    title: "SIH Navigator | 1000+ Smart India Hackathon 2025 Problem Statements",
-    description: "🎯 Browse & search Smart India Hackathon 2025 problems from 50+ ministries. Filter by difficulty, technology, domain. Bookmark your favorites for SIH2025 preparation!",
+    siteName: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database",
+    title: "Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Challenges",
+    description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation.",
     images: [
       {
         url: "https://sih-nav.vercel.app/placeholder-logo.png",
         width: 1200,
         height: 630,
-        alt: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Platform",
+        alt: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SIH Navigator | Smart India Hackathon 2025 Problems & Solutions 🚀",
-    description: "Discover 1000+ SIH 2025 problem statements from 50+ ministries. Perfect for students preparing for Smart India Hackathon 2025!",
+    title: "Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Solutions",
+    description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries for SIH2025 preparation.",
     images: ["https://sih-nav.vercel.app/placeholder-logo.png"],
     creator: "@sih_navigator",
   },
@@ -149,6 +149,31 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="description" content="Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation, hackathon projects, and innovation challenges." />
+        <meta name="keywords" content="Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="subject" content="Smart India Hackathon 2025 Problem Statements and Innovation Challenges" />
+        <meta name="abstract" content="Comprehensive database of Smart India Hackathon 2025 problem statements for students, developers, and innovators" />
+        <meta name="topic" content="Smart India Hackathon, Technology Innovation, Government Challenges" />
+        <meta name="summary" content="Browse and search Smart India Hackathon 2025 problem statements. Find AI challenges, tech problems from government ministries." />
+        <meta name="Classification" content="Education, Technology, Innovation, Hackathon" />
+        <meta name="designer" content="Anjaneya and Ishaan" />
+        <meta name="copyright" content="SIH Navigator Team" />
+        <meta name="reply-to" content="team@sih-nav.vercel.app" />
+        <meta name="owner" content="SIH Navigator" />
+        <meta name="url" content="https://sih-nav.vercel.app" />
+        <meta name="identifier-URL" content="https://sih-nav.vercel.app" />
+        <meta name="directory" content="submission" />
+        <meta name="category" content="Education, Technology, Innovation, Government, Hackathon" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="revisit-after" content="1 days" />
+        <meta httpEquiv="Expires" content="0" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Cache-Control" content="no-cache" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

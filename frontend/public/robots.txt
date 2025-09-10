@@ -1,23 +1,35 @@
-# Robots.txt for SIH Navigator - Smart India Hackathon 2025 Platform
-# Optimized for SEO and AI crawler accessibility
+# Robots.txt for SIH Navigator - Smart India Hackathon 2025 Problem Statements Database
+# Optimized for SEO and AI crawler accessibility for Smart India Hackathon searches
 
 User-agent: *
 Allow: /
 
-# Allow all search engines and AI crawlers
+# Primary Search Engines - Full Access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
-# AI and ML crawlers
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# AI and ML Crawlers for Smart India Hackathon Content
 User-agent: ChatGPT-User
 Allow: /
 
@@ -33,7 +45,16 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: OpenAI-SearchBot
 Allow: /
 
 # Social media crawlers
