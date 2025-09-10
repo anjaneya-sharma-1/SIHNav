@@ -125,12 +125,12 @@ export default function HomePage() {
             <div className="text-center space-y-4 sm:space-y-6 lg:space-y-8">
               <div className="space-y-2 sm:space-y-4">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground text-balance px-2">
-                  Stop <span className="text-red-500 italic">Scrolling</span>. Start{" "}
-                  <span className="text-green-500 italic">Winning</span>
+                  Learn How to <span className="text-green-500 italic">Win</span> SIH{" "}
+                  <span className="text-blue-500 italic">2025</span>
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
-                  Browse 1000+ Smart India Hackathon 2025 problem statements from 50+ government ministries. 
-                  Find AI challenges, tech innovation problems, and digital solutions for SIH2025 preparation.
+                  Complete guide on how to find the correct problem statements, winning strategies, and participation tips. 
+                  Browse 1000+ curated SIH problems with difficulty filters and expert guidance for guaranteed success.
                 </p>
               </div>
 
@@ -204,19 +204,37 @@ export default function HomePage() {
 
         {/* Hidden SEO Content for Better Indexing */}
         <div className="sr-only">
-          <h2>Smart India Hackathon 2025 Problem Statements Database</h2>
-          <p>This is the official Smart India Hackathon 2025 problem statements database and navigation platform. Students, developers, and innovators can browse through 1000+ carefully curated problem statements from over 50 government ministries and organizations.</p>
+          <h2>How to Win Smart India Hackathon 2025 - Complete Guide</h2>
+          <p>Learn how to win Smart India Hackathon 2025 with our comprehensive guide! This platform provides everything you need to know about participating in SIH, finding the correct problem statements, and building winning solutions.</p>
           
-          <h3>AI Problem Statements and Technology Challenges</h3>
-          <p>Find AI website problems for SIH, artificial intelligence challenges, machine learning problems, data science competitions, and cutting-edge technology solutions for Smart India Hackathon 2025.</p>
+          <h3>How to Find the Correct Problem Statement for Smart India Hackathon</h3>
+          <p>Finding the right problem statement is crucial for SIH success. Here's how to find correct problem statement for SIH: 1) Analyze your team's technical skills and expertise, 2) Review problem difficulty levels using our filters, 3) Choose domains that match your interests (AI, healthcare, fintech, etc.), 4) Consider the feasibility of implementation within the hackathon timeline, 5) Look for problems with clear evaluation criteria and measurable outcomes.</p>
           
-          <h3>Smart India Hackathon Project Ideas and Innovation Challenges</h3>
-          <p>Discover smart india hackathon project opportunities across domains like healthcare technology, fintech innovation, smart cities development, agriculture technology, education technology, cybersecurity, renewable energy, transportation technology, e-governance solutions, and digital transformation challenges.</p>
+          <h3>How to Participate in Smart India Hackathon 2025</h3>
+          <p>Complete guide on how to participate in SIH 2025: 1) Form a team of 6 members (students + mentor), 2) Register on the official SIH portal during registration period, 3) Browse and select problem statements using our platform, 4) Submit your innovative solution proposal, 5) Prepare for internal hackathon at your institute, 6) Qualify for the grand finale through regional selection.</p>
           
-          <h3>Government Ministry Problem Statements</h3>
-          <p>Browse problem statements from various government ministries including Ministry of Electronics and IT, Ministry of Health, Ministry of Education, Ministry of Agriculture, Ministry of Urban Development, and many more for the Smart India Hackathon 2025 competition.</p>
+          <h3>Smart India Hackathon Winning Tips and Strategies</h3>
+          <p>Top SIH winning tips from past champions: 1) Choose problems aligned with your technical expertise, 2) Focus on user experience and practical implementation, 3) Prepare a compelling presentation and demo, 4) Research the problem domain thoroughly, 5) Build a minimum viable product (MVP), 6) Practice your pitch multiple times, 7) Show real-world impact and scalability, 8) Demonstrate technical innovation and creativity.</p>
           
-          <h4>Keywords: Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database, government hackathon challenges, ministry problem statements, student hackathon competition, coding challenges India, tech innovation problems, Digital India hackathon, startup problem statements, innovation challenges 2025</h4>
+          <h3>How to Choose the Right SIH Problem Statement</h3>
+          <p>Expert guide on how to choose SIH problem statement: 1) Assess problem complexity vs. team capabilities, 2) Use our difficulty filters (Easy, Medium, Hard), 3) Consider available technology stack and resources, 4) Evaluate market potential and social impact, 5) Check if similar solutions already exist, 6) Ensure problem aligns with your career goals, 7) Review past winning solutions for insights.</p>
+          
+          <h3>SIH Preparation and Strategy Guide</h3>
+          <p>How to prepare for SIH 2025: 1) Start early with problem analysis, 2) Build prototypes and test concepts, 3) Create detailed project timeline, 4) Prepare backup solutions for technical challenges, 5) Practice presentation skills, 6) Study judging criteria and evaluation parameters, 7) Network with mentors and industry experts, 8) Keep updated with latest technology trends.</p>
+          
+          <h3>Smart India Hackathon Team Formation Tips</h3>
+          <p>SIH team formation tips for success: 1) Include diverse skill sets (frontend, backend, AI/ML, design, business), 2) Choose committed and reliable team members, 3) Select an experienced mentor from industry or academia, 4) Ensure good communication and collaboration, 5) Define clear roles and responsibilities, 6) Practice working together on smaller projects first.</p>
+          
+          <h3>How to Build Winning Solutions for SIH</h3>
+          <p>Steps to build winning SIH solutions: 1) Conduct thorough problem research and user analysis, 2) Design user-centric and innovative solutions, 3) Choose appropriate technology stack, 4) Focus on scalability and real-world implementation, 5) Create compelling demos and presentations, 6) Prepare for technical questions from judges, 7) Document your solution architecture and business model.</p>
+          
+          <h3>SIH Technology Selection and Implementation Guide</h3>
+          <p>How to choose technology for SIH: 1) Match technology with problem requirements, 2) Consider team expertise and learning curve, 3) Evaluate development time and complexity, 4) Check for available APIs and resources, 5) Ensure technology supports scalability, 6) Consider deployment and maintenance aspects, 7) Stay updated with trending technologies like AI, blockchain, IoT.</p>
+          
+          <h3>Smart India Hackathon Judging Criteria and Presentation Tips</h3>
+          <p>Understanding SIH judging criteria: 1) Innovation and creativity (30%), 2) Technical implementation and complexity (25%), 3) Social impact and feasibility (25%), 4) Presentation and demonstration (20%). Presentation tips: Keep it simple, focus on problem-solution fit, demonstrate live working prototype, explain technical architecture clearly, highlight unique features and benefits.</p>
+          
+          <h4>Complete Keywords Coverage: how to win SIH, how to win Smart India Hackathon, how to find correct problem statement for smart india hackathon, how to find correct problem statement for SIH, how to participate in Smart India Hackathon, how to participate in SIH 2025, SIH winning tips, Smart India Hackathon tips, how to choose SIH problem statement, SIH participation guide, Smart India Hackathon guide, how to prepare for SIH, SIH strategy, Smart India Hackathon strategy, how to select problem statement SIH, SIH problem selection tips, how to win hackathon, Smart India Hackathon winning strategies, SIH 2025 tips, how to find best problem statement, SIH problem finding guide, how to participate Smart India Hackathon 2025, SIH registration guide, Smart India Hackathon preparation tips, how to build winning solution SIH, SIH team formation tips, how to get selected in SIH</h4>
         </div>
 
         {/* Footer */}

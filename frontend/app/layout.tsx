@@ -9,9 +9,9 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Solutions",
-  description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation, hackathon projects, and innovation challenges.",
-  keywords: "Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database, government hackathon challenges, ministry problem statements, student hackathon competition, coding challenges India, tech innovation problems, Digital India hackathon, startup problem statements, innovation challenges 2025, hackathon project ideas, SIH problem database, government tech challenges, AI hackathon problems, machine learning challenges, data science problems, blockchain hackathon, IoT challenges, healthcare tech problems, fintech innovation challenges, smart cities hackathon, agriculture technology problems, education tech challenges, cybersecurity hackathon problems, renewable energy challenges, transportation tech problems, e-governance solutions, digital transformation challenges, artificial intelligence competition, technology solutions India",
+  title: "How to Win SIH 2025 | Smart India Hackathon Problem Statements Guide | Tips & Strategies",
+  description: "Learn how to win Smart India Hackathon 2025! Find the correct problem statements, get winning tips, participation guide, and strategies. Browse 1000+ curated SIH problems with difficulty filters. Complete guide for students on how to participate in SIH, choose right problems, and build winning solutions.",
+  keywords: "how to win SIH, how to win Smart India Hackathon, how to find correct problem statement for smart india hackathon, how to find correct problem statement for SIH, how to participate in Smart India Hackathon, how to participate in SIH 2025, SIH winning tips, Smart India Hackathon tips, how to choose SIH problem statement, SIH participation guide, Smart India Hackathon guide, how to prepare for SIH, SIH strategy, Smart India Hackathon strategy, how to select problem statement SIH, SIH problem selection tips, how to win hackathon, Smart India Hackathon winning strategies, SIH 2025 tips, how to find best problem statement, SIH problem finding guide, how to participate Smart India Hackathon 2025, SIH registration guide, Smart India Hackathon preparation tips, how to build winning solution SIH, SIH team formation tips, how to get selected in SIH, Smart India Hackathon selection criteria, SIH judging criteria, how to present SIH solution, Smart India Hackathon presentation tips, SIH project ideas, how to implement SIH solution, Smart India Hackathon implementation guide, SIH technology stack, how to choose technology for SIH, Smart India Hackathon tech guide",
   authors: [{ name: "Anjaneya" }, { name: "Ishaan" }],
   creator: "Anjaneya and Ishaan",
   publisher: "SIH Navigator Team",
@@ -35,22 +35,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://sih-nav.vercel.app",
-    siteName: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database",
-    title: "Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Challenges",
-    description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation.",
+    siteName: "SIH Navigator - How to Win Smart India Hackathon 2025",
+    title: "How to Win SIH 2025 | Smart India Hackathon Guide & Problem Statements",
+    description: "Complete guide on how to win Smart India Hackathon 2025! Learn how to find the correct problem statements, winning tips, participation strategies, and browse 1000+ curated SIH problems with expert guidance.",
     images: [
       {
         url: "https://sih-nav.vercel.app/placeholder-logo.png",
         width: 1200,
         height: 630,
-        alt: "SIH Navigator - Smart India Hackathon 2025 Problem Statements Database",
+        alt: "How to Win Smart India Hackathon 2025 - Complete Guide & Problem Statements",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart India Hackathon 2025 Problem Statements Database | AI Problems & Tech Solutions",
-    description: "Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries for SIH2025 preparation.",
+    title: "How to Win Smart India Hackathon 2025 | Complete SIH Guide & Tips",
+    description: "Learn how to win SIH 2025! Complete guide on finding correct problem statements, participation tips, winning strategies. Browse 1000+ curated problems with expert guidance.",
     images: ["https://sih-nav.vercel.app/placeholder-logo.png"],
     creator: "@sih_navigator",
   },
@@ -69,10 +69,10 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "SIH Navigator - Smart India Hackathon 2025 Problem Statements",
+    "@type": ["WebApplication", "HowTo"],
+    "name": "How to Win Smart India Hackathon 2025 - SIH Navigator Guide",
     "alternateName": "SIH Navigator",
-    "description": "Comprehensive platform to browse, search, and filter Smart India Hackathon 2025 problem statements from 50+ ministries and government organizations",
+    "description": "Complete guide on how to win Smart India Hackathon 2025, find correct problem statements, participation tips, and winning strategies. Browse 1000+ curated SIH problems with expert guidance.",
     "url": "https://sih-nav.vercel.app",
     "sameAs": [
       "https://sih.gov.in",
@@ -126,31 +126,53 @@ export default function RootLayout({
         "description": "Curated collection of real-world challenges from Indian government ministries"
       }
     ],
-    "mainEntity": {
-      "@type": "DataCatalog",
-      "name": "SIH 2025 Problem Statements Database",
-      "description": "Searchable and filterable database of 1000+ Smart India Hackathon 2025 problem statements categorized by ministry, technology domain, and difficulty level",
-      "keywords": "problem statements, hackathon challenges, government problems, innovation opportunities",
-      "includedInDataCatalog": {
+    "mainEntity": [
+      {
         "@type": "DataCatalog",
-        "name": "Smart India Hackathon Official Problems"
+        "name": "SIH 2025 Problem Statements Database",
+        "description": "Searchable and filterable database of 1000+ Smart India Hackathon 2025 problem statements categorized by ministry, technology domain, and difficulty level",
+        "keywords": "problem statements, hackathon challenges, government problems, innovation opportunities"
+      },
+      {
+        "@type": "Question",
+        "name": "How to win Smart India Hackathon 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To win SIH 2025: 1) Choose problems matching your technical skills, 2) Focus on user experience and practical implementation, 3) Build a working prototype, 4) Prepare compelling presentations, 5) Research the problem domain thoroughly, 6) Show real-world impact and scalability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to find the correct problem statement for Smart India Hackathon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Find correct SIH problem statements by: 1) Analyzing your team's technical expertise, 2) Using difficulty filters (Easy/Medium/Hard), 3) Choosing domains matching your interests, 4) Considering implementation feasibility, 5) Looking for clear evaluation criteria and measurable outcomes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to participate in Smart India Hackathon 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To participate in SIH 2025: 1) Form a 6-member team with mentor, 2) Register on official SIH portal, 3) Select problem statements, 4) Submit solution proposals, 5) Participate in internal hackathon, 6) Qualify for grand finale through regional selection."
+        }
       }
-    },
+    ],
     "featureList": [
-      "Search and filter problem statements",
-      "Bookmark favorite challenges",
-      "Filter by difficulty level",
-      "Filter by technology domain",
-      "Mobile-responsive interface",
-      "Real-time search results"
+      "Learn how to win Smart India Hackathon",
+      "Find correct problem statements guide",
+      "SIH participation tips and strategies",
+      "Problem difficulty and selection filters",
+      "Winning solution examples and tips",
+      "Complete SIH preparation guide"
     ]
   }
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="description" content="Official Smart India Hackathon 2025 problem statements database. Browse 1000+ AI problems, tech challenges from 50+ government ministries. Filter by difficulty, domain, technology. Perfect platform for SIH2025 preparation, hackathon projects, and innovation challenges." />
-        <meta name="keywords" content="Smart India Hackathon, Smart India Hackathon 2025, SIH 2025, SIH2025, smart india hackathon project, smart india hackathon website, AI problem statements, AI website SIH, hackathon problems database" />
+        <meta name="description" content="Learn how to win Smart India Hackathon 2025! Find the correct problem statements, get winning tips, participation guide, and strategies. Browse 1000+ curated SIH problems with difficulty filters. Complete guide for students on how to participate in SIH, choose right problems, and build winning solutions." />
+        <meta name="keywords" content="how to win SIH, how to win Smart India Hackathon, how to find correct problem statement for smart india hackathon, how to participate in SIH 2025, SIH winning tips, Smart India Hackathon guide, how to choose SIH problem statement" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
