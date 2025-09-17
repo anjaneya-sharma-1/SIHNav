@@ -78,13 +78,18 @@ class SubmissionUpdater:
                 
                 for i, header in enumerate(headers):
                     header_text = self.clean_text(header.get_text()).lower()
-                    if 'ps code' in header_text or 'pscode' in header_text or header_text == 'ps code':
+                    if ('ps code' in header_text or 'pscode' in header_text or 
+                        header_text == 'ps code' or 'ps number' in header_text):
                         ps_code_idx = i
-                    elif 'submission' in header_text and submissions_idx is None:
+                    elif ('submission' in header_text or 'submitted idea' in header_text) and submissions_idx is None:
                         submissions_idx = i
                 
                 if ps_code_idx is None or submissions_idx is None:
                     print(f"⚠️  Could not find PS Code ({ps_code_idx}) or Submissions ({submissions_idx}) columns in table headers")
+                    print("   Available headers:")
+                    for i, header in enumerate(headers):
+                        header_text = self.clean_text(header.get_text()).lower()
+                        print(f"     {i}: '{header_text}'")
                     continue
                 
                 print(f"✓ Found PS Code column at index {ps_code_idx}, Submissions at index {submissions_idx}")
@@ -126,41 +131,42 @@ class SubmissionUpdater:
                 
                 if submission_counts:
                     successful_parse = True
+                    print(f"✅ Header-based parsing found {len(submission_counts)} entries")
                     break
             
-            # Method 2: Fallback heuristic if header-based parsing failed
-            if not successful_parse:
-                print("📋 Trying fallback parsing method...")
-                all_rows = soup.find_all('tr')
+            # Method 2: Fallback method - use direct column mapping
+            # The website has a complex table structure, so we use direct column indices
+            print("� Using direct column mapping method...")
+            all_rows = soup.find_all('tr')
+            
+            for row in all_rows:
+                cells = row.find_all('td')
+                if len(cells) < 16:  # Need at least 16 columns based on website structure
+                    continue
                 
-                for row in all_rows:
-                    cells = row.find_all('td')
-                    if len(cells) < 6:  # Minimum expected columns
+                try:
+                    # Based on website analysis: PS Code at index 14 (SIH25001), submission at index 15
+                    ps_code_text = self.clean_text(cells[14].get_text())  # Full PS Code like SIH25001
+                    submission_text = self.clean_text(cells[15].get_text())  # Submissions at index 15
+                    
+                    if not ps_code_text:
+                        continue
+                    
+                    numeric_id = self.extract_numeric_ps_id(ps_code_text)
+                    if numeric_id is None:
                         continue
                     
                     try:
-                        # Based on typical structure: Serial | Organization | Title | Category | PS Code | Submissions | Theme
-                        ps_code_text = self.clean_text(cells[4].get_text())  # PS Code usually at index 4
-                        submission_text = self.clean_text(cells[5].get_text())  # Submissions usually at index 5
-                        
-                        if not ps_code_text:
-                            continue
-                        
-                        numeric_id = self.extract_numeric_ps_id(ps_code_text)
-                        if numeric_id is None:
-                            continue
-                        
-                        try:
-                            submission_count = int(submission_text)
-                        except (ValueError, TypeError):
-                            submission_count = 0
-                        
-                        ps_id = str(numeric_id)
-                        submission_counts[ps_id] = submission_count
-                        print(f"   📊 PS {ps_id}: {submission_count} submissions (fallback)")
-                        
-                    except Exception as e:
-                        continue
+                        submission_count = int(submission_text)
+                    except (ValueError, TypeError):
+                        submission_count = 0
+                    
+                    ps_id = str(numeric_id)
+                    submission_counts[ps_id] = submission_count
+                    print(f"   📊 PS {ps_id}: {submission_count} submissions")
+                    
+                except Exception as e:
+                    continue
             
             print(f"✅ Successfully scraped submission counts for {len(submission_counts)} problem statements")
             return submission_counts
