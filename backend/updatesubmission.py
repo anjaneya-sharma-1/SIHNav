@@ -38,6 +38,34 @@ class SubmissionUpdater:
         except Exception:
             return None
     
+    def parse_submission_count(self, submission_text: str) -> int:
+        """
+        Parse submission count from various formats:
+        - "5" -> 5
+        - "5/300" -> 5  
+        - "0/300" -> 0
+        - "" -> 0
+        """
+        if not submission_text:
+            return 0
+        
+        # Clean the text
+        cleaned = submission_text.strip()
+        
+        # Handle format like "5/300" - extract the number before the slash
+        if '/' in cleaned:
+            try:
+                count_part = cleaned.split('/')[0].strip()
+                return int(count_part)
+            except (ValueError, IndexError):
+                return 0
+        
+        # Handle simple integer format like "5"
+        try:
+            return int(cleaned)
+        except ValueError:
+            return 0
+    
     def scrape_submission_counts(self, url: str = "https://sih.gov.in/sih2025PS") -> Dict[str, int]:
         """
         Scrape submission counts from the SIH website listing page
@@ -116,14 +144,15 @@ class SubmissionUpdater:
                             continue
                         
                         # Convert submission count to integer
-                        try:
-                            submission_count = int(submission_text)
-                        except (ValueError, TypeError):
-                            submission_count = 0
+                        submission_count = self.parse_submission_count(submission_text)
                         
                         ps_id = str(numeric_id)
                         submission_counts[ps_id] = submission_count
-                        print(f"   📊 PS {ps_id}: {submission_count} submissions")
+                        # Show original format for debugging
+                        if '/' in submission_text:
+                            print(f"   📊 PS {ps_id}: {submission_count} submissions (from '{submission_text}')")
+                        else:
+                            print(f"   📊 PS {ps_id}: {submission_count} submissions")
                         
                     except Exception as e:
                         print(f"   ⚠️  Error parsing row: {e}")
@@ -156,14 +185,16 @@ class SubmissionUpdater:
                     if numeric_id is None:
                         continue
                     
-                    try:
-                        submission_count = int(submission_text)
-                    except (ValueError, TypeError):
-                        submission_count = 0
+                    # Parse submission count (handles formats like "5" or "5/300")
+                    submission_count = self.parse_submission_count(submission_text)
                     
                     ps_id = str(numeric_id)
                     submission_counts[ps_id] = submission_count
-                    print(f"   📊 PS {ps_id}: {submission_count} submissions")
+                    # Show original format for debugging
+                    if '/' in submission_text:
+                        print(f"   📊 PS {ps_id}: {submission_count} submissions (from '{submission_text}')")
+                    else:
+                        print(f"   📊 PS {ps_id}: {submission_count} submissions")
                     
                 except Exception as e:
                     continue
